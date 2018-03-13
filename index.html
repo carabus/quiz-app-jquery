@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang = "en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>Star Trek Quiz</title>
+  <!-- Normalize.css, a cross-browser reset file -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/normalize/4.1.1/normalize.css" rel="stylesheet">
+
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css?family=Anton|Audiowide|Open+Sans|Orbitron:400,500,700,900|Roboto:400,700" rel="stylesheet">
+  <link href="grid.css" rel="stylesheet" type="text/css" />
+  <link href="index.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+  <main role="main">
+    <div class="row">
+      <div class="col-6">
+        <header type="banner">
+          <h1>STAR TREK QUIZ</h1>  
+        </header>
+      </div>
+      <div class="col-6">
+        <div class="js-quiz-state invisible">
+          <p class="quiz-progress js-quiz-progress"></p>
+          <p class="quiz-current-score js-quiz-current-score"></p>
+        </div>
+      </div>      
+    </div>
+    
+    <div class="row js-start-page invisible">
+      <div class="col-12">
+        <p class="quiz-message">The original "Star Trek" series went where no show had ever gone before. How much do you know about "Star Trek?"</p>
+        <button type="button" id="startQuiz">Start Quiz!</button>
+      </div>
+    </div>
+    
+    <div class="row js-quiz-item invisible">
+      <div class="col-12">
+        <form id="js-quiz-item" class="quiz-item" method="post" action="/submit-quiz-item">
+          <p class="question js-question"></p>
+          
+          <div class="radio-option-container">
+            <input type="radio" name="answer-options" id="option-1" value="0" required>
+            <label for="option-1"></label>
+          </div>
+          
+          <div class="radio-option-container">
+            <input type="radio" name="answer-options" id="option-2" value="1">
+            <label for="option-2"></label>
+          </div>
+
+          <div class="radio-option-container">
+            <input type="radio" name="answer-options" id="option-3" value="2">
+            <label for="option-3"></label>
+          </div>
+          
+          <div class="radio-option-container">
+            <input type="radio" name="answer-options" id="option-4" value="3">
+            <label for="option-4"></label>
+          </div>
+          
+          <div class="form-buttons-container">
+            <button type='submit'>Submit</button>
+            <span class="js-quiz-navigation invisible">
+              <a href="#" id="js-next-question">Next</a>  
+            </span>
+          </div>
+        </form>        
+      </div>
+    </div>
+    
+    <div class="row invisible js-quiz-item-feedback-section">
+      <div class = "col-12">
+        <p class = "quiz-item-feedback js-quiz-item-feedback"></p>    
+      </div>
+    </div>
+    
+    <div class="row js-feedback-page invisible">
+      <div class="col-12">
+        <p class="quiz-feedback js-quiz-feedback"></p>
+        <button type="button" id="restartQuiz">Restart Quiz!</button>
+      </div>
+    </div>
+
+  </main>
+  <script src="//code.jquery.com/jquery.min.js"></script>
+  <script type="text/javascript" src="index.js"></script>
+  <script type="text/javascript" src="store.js"></script>
+</body>
+</html>
