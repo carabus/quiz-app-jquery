@@ -1,38 +1,41 @@
 body {
   box-sizing: border-box;
+  background-color: black;
+  background-image:
+  url('http://tos.trekcore.com/hd/albums/3x08hd/fortheworldishollowandihavetouchedtheskyhd0001.jpg');
+  color: white;
+  font-family: 'Roboto', sans-serif;
+  font-size: 16px;
 }
 
-@media only screen and (min-width: 640px) {
-  .quiz-progress, 
-  .quiz-current-score, 
-  .quiz-item-navigation {
-    text-align: right;
-    margin-right:10px;
-  }
-  .quiz-item-feedback,
-  .quiz-message,
-  button,
-  header {
-    margin-left: 10px;
-  }
+h1 {
+  font-family: 'Anton', sans-serif;
+  font-style: italic;
+  font-weight: 400;
+  font-size: 46px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  color: gold;
+  text-transform: uppercase;
 }
 
-header,
-button,
-.quiz-message,
-.quiz-progress, 
-.quiz-current-score, 
-.quiz-item-navigation,
-.quiz-item-feedback { 
-  margin-left: 10px;
-} 
-
-.quiz-item {
-  padding: 15px;
-  text-align: left;
-  border: solid black 1px;
+button {
+  font-family: 'Lobster', cursive;
+  background-color: skyblue;
+  padding: 10px;
+  border-radius: 5px;
+  border: 0;
+  margin-top: 14px;
 }
 
+p {
+  margin-top: 4px;
+  margin-bottom: 4px;  
+}
+
+img {
+  width: 100%;
+}
 
 .quiz-item button,
 .quiz-item label,
@@ -41,15 +44,119 @@ button,
 }
 
 .quiz-item label {
-  padding: 15px;
+  padding: 10px;
   position: relative;
   top: 1px;
+  max-width: 90%;
+}
+
+.quiz-item a {
+  text-decoration:none;
+  margin-left:10px;
+  color: black;
+}
+
+.quiz-item a:hover,
+.quiz-item a:focus,
+.quiz-item a:visited,
+.quiz-item a:active {
+  color: black;
+}
+
+.question {
+  font-family: 'Passion One', cursive;
+  font-size: 30px;
+}
+
+@media only screen and (min-width: 640px) {
+  h1 {
+    font-size: 60px;
+  }
+  img {
+    width: 600px;
+    display: block;
+    margin-top: 14px;
+  }
+}
+
+@media only screen and (min-width: 800px) {
+  .quiz-state {
+    display:inline-block;
+    float:right;
+    position:relative;
+    bottom:4px;
+  }
+}
+
+.quiz-item {
+  padding: 15px;
+  color: black;
+}
+
+.quiz-item-header {
+  background-color: white;
+  border-radius: 10px 10px 0 0;
+  border: solid gold 10px;
+  border-bottom-width: 0;
+}
+
+.quiz-item-footer {
+  background-color: beige;
+  border: solid gold 10px;
+  border-radius: 0 0 10px 10px;
+  border-top-width: 0;
+  padding: 15px;
 }
 
 .invisible {
   display: none;
 }
 
-.quiz-item span {
-  padding-left: 10px;
+.square {
+  display: inline-block;
+  font-family: 'Lobster';
+  background-color: greenyellow;
+  padding: 10px;
+  border-radius: 5px 0 0 5px;
+}
+
+.arrow {
+  display: inline-block;
+  position: relative;
+  top: 14px;
+  left: -4px;
+  width: 0; 
+  height: 0; 
+  border-top: 20px solid transparent;
+  border-bottom: 20px solid transparent;
+  border-left: 21px solid greenyellow;  
+}
+
+.correct {
+  background-color: greenyellow;
+}
+
+.incorrect {
+  background-color: lightsalmon;
+}
+
+.correct, .incorrect {
+  font-size: 14px;
+  padding: 5px 10px 5px 10px;
+  display: inline-block;
+  margin-right: 5px;
+  border: solid black 1px;
+  font-weight: bold;
+}
+
+.js-quiz-item-feedback-section {
+  display: inline-block;
+  font-family: 'Passion One', cursive;
+  font-size: 22px;
+  color: black;
+}
+
+.quiz-state {
+  display:block;
+  color: black;
 }
