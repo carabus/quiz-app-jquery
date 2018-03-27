@@ -76,6 +76,10 @@ img {
   color: black;
 }
 
+.quiz-item fieldset {
+  border: 0;
+}
+
 .question {
   font-family: 'Passion One', cursive;
   font-size: 30px;

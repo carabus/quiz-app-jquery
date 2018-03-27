@@ -32,27 +32,28 @@
     <div class="row js-quiz-item invisible">
       <div class="col-12 quiz-item-header">
         <form id="js-quiz-item" class="quiz-item" method="post" action="/submit-quiz-item">
-          <p class="question js-question"></p>
+           <fieldset>
+            <legend class="question js-question"></legend>
+            <div class="radio-option-container">
+              <input type="radio" name="answer-options" id="option-0" value="0" required>
+              <label for="option-0"></label>
+            </div>
           
-          <div class="radio-option-container">
-            <input type="radio" name="answer-options" id="option-0" value="0" required>
-            <label for="option-0"></label>
-          </div>
-          
-          <div class="radio-option-container">
-            <input type="radio" name="answer-options" id="option-1" value="1">
-            <label for="option-1"></label>
-          </div>
+            <div class="radio-option-container">
+              <input type="radio" name="answer-options" id="option-1" value="1">
+              <label for="option-1"></label>
+            </div>
 
-          <div class="radio-option-container">
-            <input type="radio" name="answer-options" id="option-2" value="2">
-            <label for="option-2"></label>
-          </div>
+            <div class="radio-option-container">
+              <input type="radio" name="answer-options" id="option-2" value="2">
+              <label for="option-2"></label>
+            </div>
           
-          <div class="radio-option-container">
-            <input type="radio" name="answer-options" id="option-3" value="3">
-            <label for="option-3"></label>
-          </div>
+            <div class="radio-option-container">
+              <input type="radio" name="answer-options" id="option-3" value="3">
+              <label for="option-3"></label>
+            </div>
+          </fieldset>
           
           <div class="form-buttons-container">
             <button type='submit'>Submit</button>
