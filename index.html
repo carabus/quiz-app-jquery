@@ -7,24 +7,24 @@
   <!-- Normalize.css, a cross-browser reset file -->
   <link href="https://cdnjs.cloudflare.com/ajax/libs/normalize/4.1.1/normalize.css" rel="stylesheet">
   <!-- Google Font -->
-  <link href="https://fonts.googleapis.com/css?family=Anton|Roboto:400,700|Lobster|Passion+One" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Roboto:400,700|Lobster|Passion+One" rel="stylesheet">
   <link href="grid.css" rel="stylesheet" type="text/css" />
   <link href="index.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
-  <main role="main">
+  <header type="banner">
     <div class="row">
       <div class="col-12">
-        <header type="banner">
-          <h1>Star Trek Quiz</h1>  
-        </header>
+        <h1>Star Trek Quiz</h1>  
       </div>
     </div>
-    
+  </header>
+  
+  <main role="main">  
     <div class="row js-start-page invisible">
       <div class="col-12">
-        <p>The original "Star Trek" series went where no show had ever gone before. How much do you know about "Star Trek?"</p>
-        <img src="https://i.pinimg.com/736x/2f/08/c0/2f08c0ce67633f3d12f06886bc280bb0--star-trek-series-boy-toys.jpg" alt="An image of Captain Kirk and Spok">
+        <p class="crisp-text">The original "Star Trek" series went where no show had ever gone before. How much do you know about "Star Trek?"</p>
+        <img src="images/kirk-and-spok.jpg" alt="An image of Captain Kirk and Spok">
         <button type="button" id="startQuiz">Start Quiz!</button>
       </div>
     </div>
@@ -58,8 +58,8 @@
             <button type='submit'>Submit</button>
             <span class="js-quiz-navigation invisible">
               <a id="js-next-question" href="javascript:void(0)">
-                <span class="square">Next</span>
-                <span class="arrow"></span>
+                <span class="button-square">Next</span>
+                <span class="button-arrow"></span>
               </a>
             </span>
           </div>
@@ -84,7 +84,13 @@
     
     <div class="row js-feedback-page invisible">
       <div class="col-12">
-        <p class="js-quiz-feedback"></p>
+        <p class="js-quiz-feedback crisp-text"></p>
+        <div class="js-success invisible">
+          <img class="success" src="images/success.gif" alt="Animated graphics - Enterprise crew dancing">
+        </div>
+        <div class="js-failure invisible">
+          <img class="failure" src="images/failure.gif" alt="Animated graphics - Tribbles are falling on Kirk's head">
+        </div>
         <button type="button" id="restartQuiz">Restart Quiz!</button>
       </div>
     </div>

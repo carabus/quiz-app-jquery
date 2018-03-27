@@ -1,5 +1,6 @@
 const quizAppViews = ['.js-quiz-item-feedback-section','.js-start-page', 
-'.js-quiz-item', '.js-quiz-state', '.js-feedback-page','.js-quiz-navigation'];
+'.js-quiz-item', '.js-quiz-state', '.js-feedback-page','.js-quiz-navigation',
+'.js-success', '.js-failure'];
 
 /** Quiz App State - set by resetQuizAppState() */
 let quizApp = {
@@ -17,9 +18,9 @@ function handleQuizApp() {
 }
 
 /** 
-  * Update current view to only show required views and hide all the rest
-  * @param {array} viewsToShow - array of views to show  
-  */
+* Update current view to only show required views and hide all the rest
+* @param {array} viewsToShow - array of views to show  
+*/
 function updateView(viewsToShow) {
   let viewsToHide = quizAppViews.filter(function(element) {
     return !viewsToShow.includes(element);
@@ -29,15 +30,15 @@ function updateView(viewsToShow) {
 }
 
 /**
-  * Shuffle array to randomize question selection
-  * @param {array} array - array to shuffleArray
-  */
+* Shuffle array to randomize question selection
+* @param {array} array - array to shuffleArray
+*/
 function shuffleArray(array) {
-    let i1, i2;
-    for (i1 = array.length - 1; i1 > 0; i1--) {
-        i2 = Math.floor(Math.random() * (i1 + 1));
-        [array[i1], array[i2]] = [array[i2], array[i1]];
-    }
+  let i1, i2;
+  for (i1 = array.length - 1; i1 > 0; i1--) {
+    i2 = Math.floor(Math.random() * (i1 + 1));
+    [array[i1], array[i2]] = [array[i2], array[i1]];
+  }
 }
 
 /** Generate current quiz by selecting top 5 elements from shuffled STORE */
@@ -78,7 +79,7 @@ function renderQuestion() {
   // reset and enable form
   resetForm();
   enableForm();
-  
+
   // populate form with quiz question
   $('.js-question').text(`Question ${quizApp.questionCounter+1} of 5: ${currentQuestion.question}`);
   currentQuestion.answers.forEach(function(answer, index) {
@@ -126,18 +127,18 @@ function handleAnswerSubmit() {
 }
 
 /** 
-  * Compare user answer to expected quiz answer.
-  * @param {String} answer - answer given by a user
-  */
+* Compare user answer to expected quiz answer.
+* @param {String} answer - answer given by a user
+*/
 function isCorrect(answer) {
   return answer === quizApp.currentQuiz[quizApp.questionCounter].correctAnswer;  
 }
 
 /** 
- * Generate feedback message for quiz question answer. 
- * Depends on whether the user answered correctly or not.
- * @param {boolean} isCorrectAnswer
- */
+* Generate feedback message for quiz question answer. 
+* Depends on whether the user answered correctly or not.
+* @param {boolean} isCorrectAnswer
+*/
 function generateFeedbackMessage(isCorrectAnswer) {
   return isCorrectAnswer ? 
   'The answer was correct.': 
@@ -145,18 +146,18 @@ function generateFeedbackMessage(isCorrectAnswer) {
 } 
 
 /**
- * Update user score for current quiz.
- * Depends on whether the user answered correctly or not.
- * @param {boolean} isCorrectAnswer
- */
+* Update user score for current quiz.
+* Depends on whether the user answered correctly or not.
+* @param {boolean} isCorrectAnswer
+*/
 function updateUserScore(isCorrectAnswer) {
   if(isCorrectAnswer) quizApp.correctAnswers++;
   else quizApp.incorrectAnswers++;
 }
 
 /** Display quiz question feedback on the screen
- * @param {String} message - message to Display
- */
+* @param {String} message - message to Display
+*/
 function renderQuestionFeedback(message) {
   $('.js-quiz-item-feedback').text(message);
   updateView(['.js-quiz-item-feedback-section', '.js-quiz-item','.js-quiz-state', '.js-quiz-navigation']);
@@ -178,11 +179,11 @@ function renderStartPage() {
 function processNextQuestion() {
   // update the counter
   quizApp.questionCounter++;
-  
+
   // if it is the last question - display feedback page instead
   if (quizApp.questionCounter===quizApp.currentQuiz.length) {
-      renderFeedbackPage();
-      return;
+    renderFeedbackPage();
+    return;
   }
 
   // display next question
@@ -200,10 +201,24 @@ function handleNextQuestion() {
 
 /** Populate and display quiz feedback page. */
 function renderFeedbackPage() {
+  // if current score is less than 50%, show failure image, 
+  // otherwise, show success image
+  let feedbackMessagePart = '';
+  let imageToShow = '';
+  if (quizApp.correctAnswers > quizApp.currentQuiz.length/2) {
+    feedbackMessagePart = 'Success';
+    imageToShow = '.js-success';
+  }
+  else {
+    feedbackMessagePart = 'Failure';
+    imageToShow = '.js-failure';
+  }
+
   // update feedback message with current score
-  $('.js-quiz-feedback').text(`You've got ${quizApp.correctAnswers} out 5 questions right. Great Job!`);
+  $('.js-quiz-feedback').text(`${feedbackMessagePart}! You've got ${quizApp.correctAnswers} out 5 questions right.`);
+
   // show feedback page
-  updateView(['.js-feedback-page']);
+  updateView(['.js-feedback-page', imageToShow]);
 }
 
 /** Handle "Restart Quiz" button pressed by the user. */

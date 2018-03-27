@@ -2,7 +2,9 @@
   box-sizing: border-box;
 }
 
-/* Grid measurements:
+/* This is trimmed down version of simple grid
+ * Used for layout but not for responsiveness
+ * Grid measurements:
  *
  *   960px wide including 12 gutters (half gutters on both edges)
  *
@@ -32,7 +34,7 @@
   clear: both;
 }
 
-.col-3, .col-4, .col-6, .col-12 {
+.col-12 {
   float: left;
 
   /* Gutters:
@@ -43,34 +45,5 @@
    */
    padding-left: 1.04166666%;
    padding-right: 1.04166666%;
+   width: 100%;
  }
-
- /* Mobile defaults */
- .col-3, .col-4, .col-6, .col-12 {
-  width: 100%;
-}
-
-
-/* Non-mobile, grid */
-@media only screen and (min-width: 640px) {
-  /* 3 columns, 3/12 in % */
-  .col-3 {
-    width: 25%;
-  }
-
-  /* 4 columns */
-  .col-4 {
-    width: 33.33%;
-  }
-
-  /* 6 columns */
-  .col-6 {
-    width: 50%;
-
-  }
-
-  /* 12 columns */
-  .col-12 {
-    width: 100%;
-  }
-}

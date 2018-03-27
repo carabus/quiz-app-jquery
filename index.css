@@ -1,22 +1,31 @@
+@font-face {
+  font-family: 'federationregular';
+  src: url('fonts/fec_____-webfont.woff2') format('woff2'),
+  url('fonts/fec_____-webfont.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
 body {
   box-sizing: border-box;
   background-color: black;
   background-image:
-  url('http://tos.trekcore.com/hd/albums/3x08hd/fortheworldishollowandihavetouchedtheskyhd0001.jpg');
+  url('images/stars-background.jpg');
   color: white;
   font-family: 'Roboto', sans-serif;
   font-size: 16px;
+  padding-bottom: 20px;
 }
 
 h1 {
-  font-family: 'Anton', sans-serif;
-  font-style: italic;
+  font-family: 'federationregular', sans-serif;
+  word-spacing: -15px;
   font-weight: 400;
-  font-size: 46px;
+  font-size: 60px;
   margin-top: 10px;
   margin-bottom: 10px;
   color: gold;
-  text-transform: uppercase;
+  text-transform: lowercase;
 }
 
 button {
@@ -26,6 +35,7 @@ button {
   border-radius: 5px;
   border: 0;
   margin-top: 14px;
+  cursor:pointer;
 }
 
 p {
@@ -35,6 +45,9 @@ p {
 
 img {
   width: 100%;
+  margin-top:14px;
+  border:solid gold 5px;
+  border-radius: 10px;
 }
 
 .quiz-item button,
@@ -70,12 +83,16 @@ img {
 
 @media only screen and (min-width: 640px) {
   h1 {
-    font-size: 60px;
+    font-size: 100px;
+    word-spacing: -25px;
   }
   img {
     width: 600px;
-    display: block;
-    margin-top: 14px;
+    display:block;
+  }
+  .failure,
+  .success {
+    width: 400px;
   }
 }
 
@@ -112,7 +129,7 @@ img {
   display: none;
 }
 
-.square {
+.button-square {
   display: inline-block;
   font-family: 'Lobster';
   background-color: greenyellow;
@@ -120,7 +137,7 @@ img {
   border-radius: 5px 0 0 5px;
 }
 
-.arrow {
+.button-arrow {
   display: inline-block;
   position: relative;
   top: 14px;
@@ -159,4 +176,8 @@ img {
 .quiz-state {
   display:block;
   color: black;
+}
+
+.crisp-text {
+  text-rendering: geometricPrecision;
 }
